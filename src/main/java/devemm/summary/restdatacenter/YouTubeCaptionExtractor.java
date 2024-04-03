@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
 
 @Repository
-public class RepositoryExtraction {
+
 
 public class YouTubeCaptionExtractor {
 
@@ -17,9 +17,9 @@ public class YouTubeCaptionExtractor {
     }
 
     public SimpleJsonText grabCaptions(String videoId) {
-        return restClient.get().uri("/extract_caption/" +videoId)
+        return restClient.get().uri("/extract_caption/" + videoId)
                 .retrieve()
                 .body(SimpleJsonText.class);
     }
-
 }
+
