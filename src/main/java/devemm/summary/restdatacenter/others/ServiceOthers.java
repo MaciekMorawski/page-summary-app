@@ -1,8 +1,6 @@
 package devemm.summary.restdatacenter.others;
 
 import devemm.summary.pojo.OtherJsonText;
-import devemm.summary.pojo.SimpleJsonText;
-import devemm.summary.restdatacenter.youtube.YouTubeMovieCaptionExtractor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

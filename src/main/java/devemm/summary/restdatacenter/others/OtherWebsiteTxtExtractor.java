@@ -2,10 +2,7 @@ package devemm.summary.restdatacenter.others;
 
 import devemm.summary.beans.MyComponents;
 import devemm.summary.pojo.OtherJsonText;
-import devemm.summary.pojo.SimpleJsonText;
-
 import devemm.summary.pojo.UrlOfWebpage;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Repository;

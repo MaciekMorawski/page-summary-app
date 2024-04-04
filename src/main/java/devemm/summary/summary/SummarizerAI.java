@@ -1,6 +1,5 @@
 package devemm.summary.summary;
 
-import devemm.summary.beans.MyComponents;
 import devemm.summary.grok.repository.RepositoryGroq;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;

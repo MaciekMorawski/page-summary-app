@@ -1,7 +1,7 @@
 package devemm.summary.restdatacenter.youtube;
 
-import devemm.summary.pojo.SimpleJsonText;
 import devemm.summary.beans.MyComponents;
+import devemm.summary.pojo.SimpleJsonText;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
