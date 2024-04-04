@@ -43,7 +43,7 @@ public class CtrlSumaryzacja {
     public SimpleJsonText see(@RequestBody SimpleJsonText bodyJsonWithLink) {
        //todo factory
 
-        if (true) {
+        if (false) {
             summarizerAI.setTxtGrabber(youtubeGrabber);
         } else {
             summarizerAI.setTxtGrabber(othersGrabber);

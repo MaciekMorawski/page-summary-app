@@ -1,4 +1,4 @@
-package devemm.summary.summary;
+package devemm.summary.beans;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

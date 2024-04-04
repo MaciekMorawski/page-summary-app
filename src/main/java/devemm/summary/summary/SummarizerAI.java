@@ -1,5 +1,6 @@
 package devemm.summary.summary;
 
+import devemm.summary.beans.MyComponents;
 import devemm.summary.grok.repository.RepositoryGroq;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
@@ -17,7 +18,6 @@ import java.util.List;
 public class SummarizerAI {
 
     private final RepositoryGroq repositoryGroq;
-    private final MyComponents components;
     private TxtGrabber txtGrabber;
 
     void setTxtGrabber(TxtGrabber txtGrabber) {
@@ -36,7 +36,7 @@ public class SummarizerAI {
 
         setModelParams(nativeOpenAiChatDataModelIn, messages);
 
-        String talk = repositoryGroq.talk(nativeOpenAiChatDataModelIn, components.getGson());
+        String talk = repositoryGroq.talk(nativeOpenAiChatDataModelIn);
         return new SimpleJsonText(talk);
     }
 

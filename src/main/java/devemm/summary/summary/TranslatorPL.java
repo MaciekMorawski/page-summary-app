@@ -19,12 +19,10 @@ public class TranslatorPL {
 
     private final RepositoryGroq repositoryGroq;
 
-
     SimpleJsonText translateEnToPl(SimpleJsonText sumarize) {
         NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn = new NativeOpenAiChatDataModelIn();
 
         List<NativeOpenAiChatDataModelIn.Message> messages = new NativeOpenAiChatDataModelIn().getMessages();
-      ;
 
         messages.add(nativeOpenAiChatDataModelIn.new Message(PromptRole.user,   translateBewlowEnToPl(sumarize.getTxt())));
 
@@ -36,13 +34,9 @@ public class TranslatorPL {
         nativeOpenAiChatDataModelIn.setStream(false);
         nativeOpenAiChatDataModelIn.setStop(null);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        String talk = repositoryGroq.talk(nativeOpenAiChatDataModelIn, gson);
+        String talk = repositoryGroq.talk(nativeOpenAiChatDataModelIn);
 
         return new SimpleJsonText(talk);
-
-
     }
 
     private String translateBewlowEnToPl(String txt) {
