@@ -1,13 +1,9 @@
 package devemm.summary.summary;
 
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import devemm.summary.grok.repository.RepositoryGroq;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
-import devemm.summary.pojo.SimpleJsonText;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +15,12 @@ public class TranslatorPL {
 
     private final RepositoryGroq repositoryGroq;
 
-    SimpleJsonText translateEnToPl(SimpleJsonText sumarize) {
+    public String translateEnToPl(String txtToSumarize) {
         NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn = new NativeOpenAiChatDataModelIn();
 
         List<NativeOpenAiChatDataModelIn.Message> messages = new NativeOpenAiChatDataModelIn().getMessages();
 
-        messages.add(nativeOpenAiChatDataModelIn.new Message(PromptRole.user,   translateBewlowEnToPl(sumarize.getTxt())));
+        messages.add(nativeOpenAiChatDataModelIn.new Message(PromptRole.user, translateBewlowEnToPl(txtToSumarize)));
 
         nativeOpenAiChatDataModelIn.setModel("llama2-70b-4096");
         nativeOpenAiChatDataModelIn.setMessages(messages);
@@ -34,12 +30,11 @@ public class TranslatorPL {
         nativeOpenAiChatDataModelIn.setStream(false);
         nativeOpenAiChatDataModelIn.setStop(null);
 
-        String talk = repositoryGroq.talk(nativeOpenAiChatDataModelIn);
+        return repositoryGroq.talk(nativeOpenAiChatDataModelIn);
 
-        return new SimpleJsonText(talk);
     }
 
     private String translateBewlowEnToPl(String txt) {
-        return "Przetłumacz poniższy tekst na jezyk polski: \n" + txt;
+        return "Przetłumacz  tekst  na jezyk polski: \n" + txt;
     }
 }
