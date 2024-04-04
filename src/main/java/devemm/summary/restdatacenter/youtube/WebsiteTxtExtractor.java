@@ -15,7 +15,7 @@ public class WebsiteTxtExtractor {
     private final MyComponents components;
     private final RestClient restClient;
 
-    WebsiteTxtExtractor(@Value("${youtube.caption.extractor.url}") String url, MyComponents myComponents) {
+    WebsiteTxtExtractor(@Value("${txt.extractor.url}") String url, MyComponents myComponents) {
         restClient = RestClient.create(url);
         components = myComponents;
     }
