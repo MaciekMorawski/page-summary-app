@@ -1,9 +1,9 @@
 package devemm.summary.summary;
 
 import devemm.summary.pojo.SimpleJsonText;
-import devemm.summary.summary.process.OthersGrabber;
-import devemm.summary.summary.process.TxtGrabber;
-import devemm.summary.summary.process.YouTubeGrabber;
+
+import devemm.summary.summary.grabber.OthersGrabber;
+import devemm.summary.summary.grabber.YouTubeGrabber;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;

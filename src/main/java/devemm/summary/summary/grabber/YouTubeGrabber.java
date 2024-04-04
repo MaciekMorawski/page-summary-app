@@ -1,4 +1,4 @@
-package devemm.summary.summary.process;
+package devemm.summary.summary.grabber;
 
 import devemm.summary.restdatacenter.youtube.ServiceYouTubeCaption;
 import devemm.summary.tool.YouTubeTool;

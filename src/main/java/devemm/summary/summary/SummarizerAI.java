@@ -5,9 +5,8 @@ import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
 import devemm.summary.pojo.SimpleJsonText;
 import devemm.summary.prompt.PromptSummarization;
-import devemm.summary.summary.process.TxtGrabber;
+import devemm.summary.summary.grabber.TxtGrabber;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

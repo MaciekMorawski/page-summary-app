@@ -1,4 +1,4 @@
-package devemm.summary.summary.process;
+package devemm.summary.summary.grabber;
 
 
 import lombok.RequiredArgsConstructor;
