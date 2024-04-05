@@ -5,11 +5,9 @@ import devemm.summary.summary.StrategyFromUrl;
 
 public class PathChooser {
     public static StrategyFromUrl getStrategyFromUrl(SimpleJsonText bodyJsonWithLink) {
-        if (bodyJsonWithLink.getTxt().contains("youtube")) {
-            return StrategyFromUrl.YOUTUBE;
-        } else {
-            return StrategyFromUrl.OTHERS;
-        }
-
+        return switch (bodyJsonWithLink.getTxt()) {
+            case String url when url.contains("youtube") -> StrategyFromUrl.YOUTUBE;
+            default -> StrategyFromUrl.OTHERS;
+        };
     }
 }
