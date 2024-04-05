@@ -21,13 +21,15 @@ The URL Caption Summarizer API is designed to extract captions or descriptions f
 []
 
 ## Usage
-```curl
+* CLI
+```
 curl --location 'http://somehost:80/summarize' \
 --header 'Content-Type: application/json' \
 --data '{
     "txt" : "https://your-url.here/sample-page"
 }'
 ```
+* Pure JSON
 ```json
 {
 "txt" : "https://your-url.here/sample-page"
