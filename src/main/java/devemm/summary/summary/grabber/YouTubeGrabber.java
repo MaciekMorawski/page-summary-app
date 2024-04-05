@@ -5,7 +5,6 @@ import devemm.summary.summary.TranslatorPL;
 import devemm.summary.tool.YouTubeTool;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
