@@ -15,12 +15,12 @@ public class TranslatorPL {
 
     private final RepositoryGroq repositoryGroq;
 
-    public String translateEnToPl(String txtToSumarize) {
+    public String translateEnToPl(String txtToSummarize) {
         NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn = new NativeOpenAiChatDataModelIn();
 
         List<NativeOpenAiChatDataModelIn.Message> messages = new NativeOpenAiChatDataModelIn().getMessages();
 
-        messages.add(nativeOpenAiChatDataModelIn.new Message(PromptRole.user, translateBewlowEnToPl(txtToSumarize)));
+        messages.add(nativeOpenAiChatDataModelIn.new Message(PromptRole.user, translateBewlowEnToPl(txtToSummarize)));
 
         nativeOpenAiChatDataModelIn.setModel("llama2-70b-4096");
         nativeOpenAiChatDataModelIn.setMessages(messages);

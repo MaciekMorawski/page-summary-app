@@ -12,22 +12,22 @@ public enum PromptSummarization {
             You are good summarization assistant.\s
              * Answer only in polish language,\s
             * Summarize given user   prompt
-            * You have to check prepared sumarization to fix mistakes
-            * Do not use english langauge when answer"""),
+            * You have to check prepared summarization to fix mistakes
+            * Do not use english language when answer"""),
 
     SYSTEM_ASSISTANT_ROLE_03("""
             Your job is shorten given user prompt.\s
             * Answer only in polish language,\s
             * Explain given user prompt
-            * You have to check prepared sumarization to fix mistakes
-            * Do not use english langauge when answer"""),
+            * You have to check prepared summarization to fix mistakes
+            * Do not use english language when answer"""),
     SYSTEM_ASSISTANT_ROLE_04("""
             Your job is shorten given user prompt.\s
             Summarization must be done using spotlight
             * Answer only in polish language,\s
             * Explain given user prompt
-            * You have to check prepared sumarization to fix mistakes
-            * Do not use english langauge when answer
+            * You have to check prepared summarization to fix mistakes
+            * Do not use english language when answer
             """),
 
     SYSTEM_ASSISTANT_ROLE_05("""

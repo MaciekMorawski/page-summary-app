@@ -41,7 +41,7 @@ public class YouTubeGrabber implements TxtGrabber {
     @Override
     public String getTxtFromUrl(String url) {
         String videoId = YouTubeTool.getVideoId(url);
-        String sumarize = serviceYouTubeCaption.grabTxtUsingVideoId(videoId);
-        return translator.translateEnToPl(sumarize);
+        String summarize = serviceYouTubeCaption.grabTxtUsingVideoId(videoId);
+        return translator.translateEnToPl(summarize);
     }
 }
