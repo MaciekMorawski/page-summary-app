@@ -17,7 +17,7 @@ public class CtrlSumaryzacja {
 
     private final SummarizerAI summarizerAI;
     private final TranslatorPL translator;
-    private final StrategyMap strategyMap;
+//    private final StrategyMap strategyMap;
 
 
 
@@ -43,10 +43,9 @@ public class CtrlSumaryzacja {
     public SimpleJsonText see(@RequestBody SimpleJsonText bodyJsonWithLink) {
        //todo factory
 
-        TxtGrabber txtGrabber = strategyMap.getStrategyMap().get(PathChooser.getStrategyFromUrl(bodyJsonWithLink));
+        TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink).getTxtGrabber();
 
         summarizerAI.setTxtGrabber(txtGrabber);
-
         return summarizerAI.summarize(bodyJsonWithLink.getTxt());
     }
 

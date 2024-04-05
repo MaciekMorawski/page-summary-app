@@ -2,6 +2,7 @@ package devemm.summary.summary.grabber;
 
 
 import devemm.summary.restdatacenter.others.ServiceOthers;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,9 @@ public class OthersGrabber implements TxtGrabber{
 
     private final ServiceOthers serviceOthers;
 
-    private final OthersGrabber othersGrabberInstance;
+    @Getter
+    private static  OthersGrabber othersGrabberInstance;
 
-    @Bean(name = "OtherGrabberInstance")
-    public OthersGrabber getOthersGrabberInstance() {
-        return othersGrabberInstance;
-    }
 
     OthersGrabber(ServiceOthers serviceOthers) {
         this.serviceOthers = serviceOthers;

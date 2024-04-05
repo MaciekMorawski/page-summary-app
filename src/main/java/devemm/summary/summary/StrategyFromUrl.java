@@ -1,24 +1,18 @@
 package devemm.summary.summary;
 
+import devemm.summary.summary.grabber.OthersGrabber;
+import devemm.summary.summary.grabber.TxtGrabber;
+import devemm.summary.summary.grabber.YouTubeGrabber;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum StrategyFromUrl {
 
-    OTHERS,
-    YOUTUBE
+    OTHERS(OthersGrabber.getOthersGrabberInstance()),
+    YOUTUBE(YouTubeGrabber.getYoutubeGrabberInstance());
 
-
-//
-//    static {
-//        createEnum(OTHERS, new OthersGrabber());
-//        createEnum(YOUTUBE, new YouTubeGrabber());
-//    }
-//
-//    private static void createEnum(StrategyFromUrl strategyFromUrl, TxtGrabber txtGrabber) {
-//
-//    }
-
-
+    private final TxtGrabber txtGrabber;
 
 }

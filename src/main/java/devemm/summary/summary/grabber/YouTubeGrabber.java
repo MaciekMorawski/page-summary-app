@@ -3,6 +3,7 @@ package devemm.summary.summary.grabber;
 import devemm.summary.restdatacenter.youtube.ServiceYouTubeCaption;
 import devemm.summary.summary.TranslatorPL;
 import devemm.summary.tool.YouTubeTool;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
@@ -17,12 +18,9 @@ public class YouTubeGrabber implements TxtGrabber {
     private final ServiceYouTubeCaption serviceYouTubeCaption;
     private final TranslatorPL translator;
 
+    @Getter
+    private static YouTubeGrabber youtubeGrabberInstance;
 
-    private final YouTubeGrabber youtubeGrabberInstance;
-    @Bean(name = "YouTubeGrabberInstance")
-    public YouTubeGrabber getYoutubeGrabberInstance() {
-        return youtubeGrabberInstance;
-    }
 
     YouTubeGrabber(ServiceYouTubeCaption serviceYouTubeCaption, TranslatorPL translator) {
         this.serviceYouTubeCaption = serviceYouTubeCaption;
@@ -30,13 +28,7 @@ public class YouTubeGrabber implements TxtGrabber {
         youtubeGrabberInstance = this;
     }
 
-    //make singletone
 
-
-
-    //    public YouTubeGrabber() {
-//        this.serviceYouTubeCaption = new ServiceYouTubeCaption
-//    }
 
     @Override
     public String getTxtFromUrl(String url) {
