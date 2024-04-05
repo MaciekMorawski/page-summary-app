@@ -1,6 +1,5 @@
 package devemm.summary.restdatacenter.others;
 
-import devemm.summary.beans.MyComponents;
 import devemm.summary.pojo.OtherJsonText;
 import devemm.summary.pojo.UrlOfWebpage;
 import org.springframework.beans.factory.annotation.Value;

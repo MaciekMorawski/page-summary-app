@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class CtrlSumaryzacja {
 
     private final SummarizerAI summarizerAI;
-    private final TranslatorPL translator;
+
 
     @GetMapping()
     public String  hello() {
