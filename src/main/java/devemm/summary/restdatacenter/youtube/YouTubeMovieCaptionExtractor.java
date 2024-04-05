@@ -9,12 +9,11 @@ import org.springframework.web.client.RestClient;
 @Repository
 public class YouTubeMovieCaptionExtractor {
 
-//    private final MyComponents components;
+
     private final RestClient restClient;
 
-    YouTubeMovieCaptionExtractor(@Value("${txt.extractor.url}") String url, MyComponents myComponents) {
+    YouTubeMovieCaptionExtractor(@Value("${txt.extractor.url}") String url) {
         restClient = RestClient.create(url);
-//        components = myComponents;
     }
 
     public SimpleJsonText grabCaptionsFromYouTube(String videoId) {

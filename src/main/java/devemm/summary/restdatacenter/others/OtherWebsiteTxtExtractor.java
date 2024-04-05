@@ -13,11 +13,10 @@ import org.springframework.web.client.RestClient;
 public class OtherWebsiteTxtExtractor  {
 
     private final RestClient restClient;
-    private final MyComponents components;
 
-    OtherWebsiteTxtExtractor(@Value("${txt.extractor.url}") String url, MyComponents myComponents) {
+
+    OtherWebsiteTxtExtractor(@Value("${txt.extractor.url}") String url) {
         restClient = RestClient.create(url);
-        components = myComponents;
     }
 
     public OtherJsonText getMainArticle(String url) {
@@ -29,9 +28,7 @@ public class OtherWebsiteTxtExtractor  {
                 .retrieve()
                 .body(OtherJsonText.class);
 
-//        OtherJsonText otherJsonText = components.getGson().fromJson(body, OtherJsonText.class);
-//
-//        return  otherJsonText;
+
     }
 }
 

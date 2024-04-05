@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Qualifier("OtherGrabber")
-//@RequiredArgsConstructor
 public class OthersGrabber implements TxtGrabber{
 
     private final ServiceOthers serviceOthers;

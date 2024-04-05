@@ -22,12 +22,12 @@ public class CtrlSumaryzacja {
         return "Hi/Ai!";
     }
 
-    @GetMapping("{video_id}")
-    public SimpleJsonText see(@PathVariable(name = "video_id", required = true) String videoId) {
-        SimpleJsonText summarize = summarizerAI.summarize(videoId);
-//        return translator.translateEnToPl(summarize);
-        return null;
-    }
+//    @GetMapping("{video_id}")
+//    public SimpleJsonText see(@PathVariable(name = "video_id", required = true) String videoId) {
+//        SimpleJsonText summarize = summarizerAI.summarize(videoId);
+////        return translator.translateEnToPl(summarize);
+//        return null;
+//    }
 
     @PostMapping()
     public SimpleJsonText see(@RequestBody SimpleJsonText bodyJsonWithLink) {
