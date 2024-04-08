@@ -4,7 +4,9 @@ import devemm.summary.pojo.SimpleJsonText;
 import devemm.summary.summary.grabber.TxtGrabber;
 import devemm.summary.tool.PathChooser;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class CtrlSumaryzacja {
 
     private final SummarizerAI summarizerAI;
+
 
 
     @GetMapping()
@@ -30,16 +33,13 @@ public class CtrlSumaryzacja {
 //    }
 
     @PostMapping()
-    public SimpleJsonText see(@RequestBody SimpleJsonText bodyJsonWithLink) {
+    public ResponseEntity<?> see(@RequestBody SimpleJsonText bodyJsonWithLink) {
        //todo factory
-
         TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink).getTxtGrabber();
-
         summarizerAI.setTxtGrabber(txtGrabber);
-        return summarizerAI.summarize(bodyJsonWithLink.getTxt());
+        SimpleJsonText summarize = summarizerAI.summarize(bodyJsonWithLink.getTxt());
+        return ResponseEntity.ok(summarize);
     }
-
-
 
 
 
