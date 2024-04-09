@@ -1,0 +1,16 @@
+FROM python:3.10.12-slim
+
+
+
+ADD requirements.txt .
+RUN python3 -m pip install -r requirements.txt
+RUN rm requirements.txt
+
+WORKDIR /app
+COPY src/app-*.py /app
+
+
+EXPOSE 5000
+
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app-websrv:app"]
+
