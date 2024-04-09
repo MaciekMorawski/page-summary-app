@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  serverapi:
+    container_name: api-page-extractor
+    ##image: page_data_extractor:01
+    build:
+      context: ./python-txt-extractor
+      dockerfile: Dockerfile_py
+      ## ports:
+      ##   - 5000:5000
+
+  summarizer:
+    container_name: summarizer
+    ##image: summarizer:01
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "88:80"
+    environment:
+      - API_KEY_GROQ=${GROQ} # use .env file with GROQ=gsk_.....
+    depends_on:
+      - serverapi
+
