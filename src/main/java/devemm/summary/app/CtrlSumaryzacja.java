@@ -32,9 +32,9 @@ public class CtrlSumaryzacja {
     @PostMapping()
     public ResponseEntity<?> see(@RequestBody SimpleJsonText bodyJsonWithLink) {
        //todo factory
-        TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink.getTxt()).getTxtGrabber();
+        TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink.txt()).getTxtGrabber();
         summarizerAI.setTxtGrabber(txtGrabber);
-        String summarize = summarizerAI.summarize(bodyJsonWithLink.getTxt());
+        String summarize = summarizerAI.summarize(bodyJsonWithLink.txt());
         return ResponseEntity.ok(summarize);
     }
 

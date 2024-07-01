@@ -9,7 +9,7 @@ public class ServiceYouTubeCaption {
     private final YouTubeMovieCaptionExtractor websiteTxtExtractor;
 
     public String grabTxtUsingVideoId(String videoId) {
-        return websiteTxtExtractor.grabCaptionsFromYouTube(videoId).getTxt();
+        return websiteTxtExtractor.grabCaptionsFromYouTube(videoId);
     }
 
 

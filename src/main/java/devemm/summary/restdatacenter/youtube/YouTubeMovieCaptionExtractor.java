@@ -15,10 +15,11 @@ public class YouTubeMovieCaptionExtractor {
         restClient = RestClient.create(url);
     }
 
-    public SimpleJsonText grabCaptionsFromYouTube(String videoId) {
+    public  String grabCaptionsFromYouTube(String videoId) {
         return restClient.get().uri("/extract_caption/" + videoId)
                 .retrieve()
-                .body(SimpleJsonText.class);
+                .body(SimpleJsonText.class)
+                .txt();
     }
 
 
