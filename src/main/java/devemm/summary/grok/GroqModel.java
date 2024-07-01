@@ -1,4 +1,4 @@
-package devemm.summary.grok.repository;
+package devemm.summary.grok;
 
 import lombok.Getter;
 

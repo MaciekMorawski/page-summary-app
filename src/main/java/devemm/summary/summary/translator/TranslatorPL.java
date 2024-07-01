@@ -1,8 +1,8 @@
 package devemm.summary.summary.translator;
 
 
-import devemm.summary.grok.repository.GroqModel;
-import devemm.summary.grok.repository.RepositoryGroq;
+import devemm.summary.grok.GroqModel;
+import devemm.summary.grok.repo.GroqRepository;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TranslatorPL {
 
-    private final RepositoryGroq repositoryGroq;
+    private final GroqRepository repositoryGroq;
 
     public String translateEnToPl(String txtToSummarize) {
         NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn = new NativeOpenAiChatDataModelIn();

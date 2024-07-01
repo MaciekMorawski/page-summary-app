@@ -1,4 +1,4 @@
-package devemm.summary.grok.repository;
+package devemm.summary.grok.repo;
 
 
 import devemm.summary.beans.MyGson;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClient;
 
 @Repository
-public class RepositoryGroq {
+public class GroqRepository {
     private final RestClient restClientGrok;
     private final MyGson components;
 
     @Value("${qroq.api.key}")
     private String token;
 
-    RepositoryGroq(@Value("${groq.api.url}") String url, MyGson myComponents) {
+    GroqRepository(@Value("${groq.api.url}") String url, MyGson myComponents) {
         this.restClientGrok = RestClient.create(url);
         this.components=myComponents;
     }

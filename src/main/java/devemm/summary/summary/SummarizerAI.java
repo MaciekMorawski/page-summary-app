@@ -1,7 +1,7 @@
 package devemm.summary.summary;
 
-import devemm.summary.grok.repository.GroqModel;
-import devemm.summary.grok.repository.RepositoryGroq;
+import devemm.summary.grok.GroqModel;
+import devemm.summary.grok.repo.GroqRepository;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
 import devemm.summary.pojo.SimpleJsonText;
@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SummarizerAI {
 
-    private final RepositoryGroq repositoryGroq;
+    private final GroqRepository repositoryGroq;
     private TxtGrabber txtGrabber;
 
     void setTxtGrabber(TxtGrabber txtGrabber) {
