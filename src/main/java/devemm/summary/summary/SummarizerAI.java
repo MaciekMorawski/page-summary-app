@@ -1,5 +1,6 @@
 package devemm.summary.summary;
 
+import devemm.summary.grok.repository.GroqModel;
 import devemm.summary.grok.repository.RepositoryGroq;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
@@ -45,8 +46,8 @@ public class SummarizerAI {
     }
 
     private static void setModelParams(NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn, List<NativeOpenAiChatDataModelIn.Message> messages) {
-//        nativeOpenAiChatDataModelIn.setModel("mixtral-8x7b-32768");
-        nativeOpenAiChatDataModelIn.setModel("llama2-70b-4096");
+
+        nativeOpenAiChatDataModelIn.setModel(GroqModel.LLAMA_3_70_B_8192.getModelName());
         nativeOpenAiChatDataModelIn.setMessages(messages);
         nativeOpenAiChatDataModelIn.setTemperature(0.1);
         nativeOpenAiChatDataModelIn.setMaxTokens(1024);

@@ -1,6 +1,7 @@
 package devemm.summary.summary.translator;
 
 
+import devemm.summary.grok.repository.GroqModel;
 import devemm.summary.grok.repository.RepositoryGroq;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.PromptRole;
@@ -34,7 +35,7 @@ public class TranslatorPL {
     }
 
     private void setupModelEngine(NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn) {
-        nativeOpenAiChatDataModelIn.setModel("llama2-70b-4096");
+        nativeOpenAiChatDataModelIn.setModel(GroqModel.LLAMA_3_70_B_8192.getModelName());
         nativeOpenAiChatDataModelIn.setTemperature(0.1);
         nativeOpenAiChatDataModelIn.setMaxTokens(1024);
         nativeOpenAiChatDataModelIn.setTopP(0);

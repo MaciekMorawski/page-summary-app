@@ -1,4 +1,4 @@
-package devemm.summary.summary;
+package devemm.summary.summary.exception;
 
 
 import lombok.Getter;

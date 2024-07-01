@@ -1,7 +1,6 @@
-package devemm.summary.tool;
+package devemm.summary.summary.strategychooser;
 
 import devemm.summary.pojo.SimpleJsonText;
-import devemm.summary.summary.StrategyFromUrl;
 
 public class PathChooser {
     public static StrategyFromUrl getStrategyFromUrl(SimpleJsonText bodyJsonWithLink) {

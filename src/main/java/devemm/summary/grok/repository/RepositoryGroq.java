@@ -1,7 +1,7 @@
 package devemm.summary.grok.repository;
 
 
-import devemm.summary.beans.MyComponents;
+import devemm.summary.beans.MyGson;
 import devemm.summary.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.openai.NativeOpenAiChatDataModelOut;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,12 +12,12 @@ import org.springframework.web.client.RestClient;
 @Repository
 public class RepositoryGroq {
     private final RestClient restClientGrok;
-    private final MyComponents components;
+    private final MyGson components;
 
     @Value("${qroq.api.key}")
     private String token;
 
-    RepositoryGroq(@Value("${groq.api.url}") String url, MyComponents myComponents) {
+    RepositoryGroq(@Value("${groq.api.url}") String url, MyGson myComponents) {
         this.restClientGrok = RestClient.create(url);
         this.components=myComponents;
     }

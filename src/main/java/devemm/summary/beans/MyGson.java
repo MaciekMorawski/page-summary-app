@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyComponents {
+public class MyGson {
     @Bean
     public Gson getGson() {
         return new GsonBuilder().setPrettyPrinting().create();

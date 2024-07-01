@@ -1,4 +1,4 @@
-package devemm.summary.summary;
+package devemm.summary.summary.strategychooser;
 
 import devemm.summary.summary.grabber.OthersGrabber;
 import devemm.summary.summary.grabber.TxtGrabber;
