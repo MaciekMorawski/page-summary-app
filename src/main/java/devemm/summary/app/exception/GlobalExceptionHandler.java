@@ -1,4 +1,4 @@
-package devemm.summary.summary.exception;
+package devemm.summary.app.exception;
 
 
 import lombok.extern.log4j.Log4j2;

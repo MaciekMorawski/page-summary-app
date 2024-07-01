@@ -1,4 +1,4 @@
-package devemm.summary.summary.strategychooser;
+package devemm.summary.app.strategychooser;
 
 import devemm.summary.pojo.SimpleJsonText;
 

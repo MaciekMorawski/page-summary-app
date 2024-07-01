@@ -1,8 +1,8 @@
-package devemm.summary.summary;
+package devemm.summary.app;
 
 import devemm.summary.pojo.SimpleJsonText;
-import devemm.summary.summary.grabber.TxtGrabber;
-import devemm.summary.summary.strategychooser.PathChooser;
+import devemm.summary.app.grabber.TxtGrabber;
+import devemm.summary.app.strategychooser.PathChooser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;

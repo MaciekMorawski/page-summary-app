@@ -1,4 +1,4 @@
-package devemm.summary.summary;
+package devemm.summary.app;
 
 import devemm.summary.ai.grok.GroqModel;
 import devemm.summary.ai.grok.repo.GroqRepository;
@@ -6,7 +6,7 @@ import devemm.summary.ai.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.ai.openai.PromptRole;
 import devemm.summary.pojo.SimpleJsonText;
 import devemm.summary.ai.prompt.PromptSummarization;
-import devemm.summary.summary.grabber.TxtGrabber;
+import devemm.summary.app.grabber.TxtGrabber;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
