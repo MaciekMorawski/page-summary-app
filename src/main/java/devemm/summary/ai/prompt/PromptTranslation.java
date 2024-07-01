@@ -1,4 +1,4 @@
-package devemm.summary.prompt;
+package devemm.summary.ai.prompt;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,11 +1,11 @@
 package devemm.summary.summary;
 
-import devemm.summary.grok.GroqModel;
-import devemm.summary.grok.repo.GroqRepository;
-import devemm.summary.openai.NativeOpenAiChatDataModelIn;
-import devemm.summary.openai.PromptRole;
+import devemm.summary.ai.grok.GroqModel;
+import devemm.summary.ai.grok.repo.GroqRepository;
+import devemm.summary.ai.openai.NativeOpenAiChatDataModelIn;
+import devemm.summary.ai.openai.PromptRole;
 import devemm.summary.pojo.SimpleJsonText;
-import devemm.summary.prompt.PromptSummarization;
+import devemm.summary.ai.prompt.PromptSummarization;
 import devemm.summary.summary.grabber.TxtGrabber;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

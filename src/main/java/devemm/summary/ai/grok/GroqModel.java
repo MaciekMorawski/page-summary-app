@@ -1,4 +1,4 @@
-package devemm.summary.grok;
+package devemm.summary.ai.grok;
 
 import lombok.Getter;
 

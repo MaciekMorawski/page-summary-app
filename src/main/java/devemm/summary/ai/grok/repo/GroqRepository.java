@@ -1,9 +1,9 @@
-package devemm.summary.grok.repo;
+package devemm.summary.ai.grok.repo;
 
 
 import devemm.summary.beans.MyGson;
-import devemm.summary.openai.NativeOpenAiChatDataModelIn;
-import devemm.summary.openai.NativeOpenAiChatDataModelOut;
+import devemm.summary.ai.openai.NativeOpenAiChatDataModelIn;
+import devemm.summary.ai.openai.NativeOpenAiChatDataModelOut;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Repository;

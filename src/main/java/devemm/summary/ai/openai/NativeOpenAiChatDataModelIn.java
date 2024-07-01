@@ -1,4 +1,4 @@
-package devemm.summary.openai;
+package devemm.summary.ai.openai;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
