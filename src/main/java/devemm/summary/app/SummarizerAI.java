@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-
 @AllArgsConstructor
 public class SummarizerAI {
 
@@ -24,7 +23,7 @@ public class SummarizerAI {
         this.txtGrabber = txtGrabber;
     }
 
-    SimpleJsonText summarize(String url) {
+    String summarize(String url) {
 
         String txtToSummarize = txtGrabber.getTxtFromUrl(url);
 
@@ -36,8 +35,8 @@ public class SummarizerAI {
 
         setModelParams(nativeOpenAiChatDataModelIn, messages);
 
-        String talk = repositoryGroq.talk(nativeOpenAiChatDataModelIn);
-        return new SimpleJsonText(talk);
+        return repositoryGroq.talk(nativeOpenAiChatDataModelIn);
+
     }
 
     private static void prepareMessages(String txtToSummarize, List<NativeOpenAiChatDataModelIn.Message> messages, NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn) {
