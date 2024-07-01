@@ -1,7 +1,7 @@
 package devemm.summary.app.grabber;
 
-import devemm.summary.restdatacenter.youtube.ServiceYouTubeCaption;
 import devemm.summary.app.translator.TranslatorPL;
+import devemm.summary.restdatacenter.youtube.ServiceYouTubeCaption;
 import devemm.summary.tool.YouTubeTool;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Qualifier;

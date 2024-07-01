@@ -4,7 +4,6 @@ import devemm.summary.ai.grok.GroqModel;
 import devemm.summary.ai.grok.repo.GroqRepository;
 import devemm.summary.ai.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.ai.openai.PromptRole;
-import devemm.summary.pojo.SimpleJsonText;
 import devemm.summary.ai.prompt.PromptSummarization;
 import devemm.summary.app.grabber.TxtGrabber;
 import lombok.AllArgsConstructor;
