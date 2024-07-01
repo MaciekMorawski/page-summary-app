@@ -10,8 +10,7 @@ public class ServiceYouTubeCaption {
     private final YouTubeMovieCaptionExtractor websiteTxtExtractor;
 
     public String grabTxtUsingVideoId(String videoId) {
-        SimpleJsonText youtubeCaption = websiteTxtExtractor.grabCaptionsFromYouTube(videoId);
-        return youtubeCaption.getTxt();
+        return websiteTxtExtractor.grabCaptionsFromYouTube(videoId).getTxt();
     }
 
 
