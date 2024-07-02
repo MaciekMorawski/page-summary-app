@@ -38,7 +38,7 @@ curl --location 'http://somehost:80/summarize' \
 
 
 ## Contributing
-[]
+[ask!]
 
 ## License
-[]
+[ask!]
