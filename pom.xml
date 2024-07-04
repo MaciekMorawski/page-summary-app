@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>devemm</groupId>
 	<artifactId>summary</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>summary</name>
 	<description>summary about given url</description>
 	<properties>
@@ -72,5 +72,12 @@
 			</plugin>
 		</plugins>
 	</build>
+    <repositories>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
 
 </project>
