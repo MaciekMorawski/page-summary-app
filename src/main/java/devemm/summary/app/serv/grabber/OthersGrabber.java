@@ -1,4 +1,4 @@
-package devemm.summary.app.grabber;
+package devemm.summary.app.serv.grabber;
 
 
 import devemm.summary.restdatacenter.others.OtherService;

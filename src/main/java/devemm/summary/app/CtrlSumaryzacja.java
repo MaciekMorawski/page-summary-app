@@ -1,7 +1,8 @@
 package devemm.summary.app;
 
-import devemm.summary.app.grabber.TxtGrabber;
-import devemm.summary.app.strategychooser.PathChooser;
+import devemm.summary.app.serv.grabber.TxtGrabber;
+import devemm.summary.app.serv.strategychooser.PathChooser;
+import devemm.summary.app.serv.sumarize.SummarizerAI;
 import devemm.summary.pojo.SimpleJsonText;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

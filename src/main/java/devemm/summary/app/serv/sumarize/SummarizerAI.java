@@ -1,11 +1,11 @@
-package devemm.summary.app;
+package devemm.summary.app.serv.sumarize;
 
 import devemm.summary.ai.grok.GroqModel;
 import devemm.summary.ai.grok.repo.GroqRepository;
 import devemm.summary.ai.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.ai.openai.PromptRole;
 import devemm.summary.ai.prompt.PromptSummarization;
-import devemm.summary.app.grabber.TxtGrabber;
+import devemm.summary.app.serv.grabber.TxtGrabber;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +18,11 @@ public class SummarizerAI {
     private final GroqRepository repositoryGroq;
     private TxtGrabber txtGrabber;
 
-    void setTxtGrabber(TxtGrabber txtGrabber) {
+    public void setTxtGrabber(TxtGrabber txtGrabber) {
         this.txtGrabber = txtGrabber;
     }
 
-    String summarize(String url) {
+    public String summarize(String url) {
 
         String txtToSummarize = txtGrabber.getTxtFromUrl(url);
 

@@ -1,4 +1,4 @@
-package devemm.summary.app.translator;
+package devemm.summary.app.serv.translate;
 
 
 import devemm.summary.ai.grok.GroqModel;

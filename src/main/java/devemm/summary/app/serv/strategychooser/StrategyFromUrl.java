@@ -1,8 +1,8 @@
-package devemm.summary.app.strategychooser;
+package devemm.summary.app.serv.strategychooser;
 
-import devemm.summary.app.grabber.OthersGrabber;
-import devemm.summary.app.grabber.TxtGrabber;
-import devemm.summary.app.grabber.YouTubeGrabber;
+import devemm.summary.app.serv.grabber.OthersGrabber;
+import devemm.summary.app.serv.grabber.TxtGrabber;
+import devemm.summary.app.serv.grabber.YouTubeGrabber;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

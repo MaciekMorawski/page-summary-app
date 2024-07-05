@@ -1,4 +1,4 @@
-package devemm.summary.app.strategychooser;
+package devemm.summary.app.serv.strategychooser;
 
 
 

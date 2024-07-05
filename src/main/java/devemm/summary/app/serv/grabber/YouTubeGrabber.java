@@ -1,6 +1,6 @@
-package devemm.summary.app.grabber;
+package devemm.summary.app.serv.grabber;
 
-import devemm.summary.app.translator.TranslatorPL;
+import devemm.summary.app.serv.translate.TranslatorPL;
 import devemm.summary.restdatacenter.youtube.ServiceYouTubeCaption;
 import devemm.summary.tool.YouTubeTool;
 import lombok.Getter;
