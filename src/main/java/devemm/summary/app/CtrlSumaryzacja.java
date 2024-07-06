@@ -2,7 +2,8 @@ package devemm.summary.app;
 
 import devemm.summary.app.serv.database.DbService;
 
-import devemm.summary.app.serv.database.pojo.WebPage;
+
+import devemm.summary.app.serv.database.pojo.WebPageInfo;
 import devemm.summary.app.serv.grabber.TxtGrabber;
 import devemm.summary.app.serv.strategychooser.PathChooser;
 import devemm.summary.app.serv.sumarize.SummarizerAI;
@@ -26,7 +27,7 @@ public class CtrlSumaryzacja {
     private final DbService dbService;
 
     @GetMapping()
-    public String  hello() {
+    public String hello() {
         return "Hi/Ai!";
     }
 
@@ -39,25 +40,23 @@ public class CtrlSumaryzacja {
 
     @PostMapping()
     public ResponseEntity<?> see(@RequestBody @Valid SimpleJsonText bodyJsonWithLink) {
-       //todo factory
+        //todo factory
 
-        Optional<WebPage> webPage = dbService.returnWebPageInfoIfExists(bodyJsonWithLink.txt());
-        if(webPage.isPresent()) {
-            var summary = webPage.get().getSummary();
+        Optional<WebPageInfo> webPageInfo = dbService.returnWebPageInfoIfExists(bodyJsonWithLink.txt());
+
+        if (webPageInfo.isPresent()) {
+            var summary = webPageInfo.get();
             return ResponseEntity.ok(summary);
-        }else {
+        } else {
             TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink.txt()).getTxtGrabber();
             summarizerAI.setTxtGrabber(txtGrabber);
             String summarize = summarizerAI.summarize(bodyJsonWithLink.txt());
-            dbService.saveWebPage(bodyJsonWithLink.txt(), summarize);
-            return ResponseEntity.ok(summarize);
+            var returnValue = dbService.saveWebPage(bodyJsonWithLink.txt(), summarize);
+            return ResponseEntity.ok(returnValue);
         }
 
 
-
     }
-
-
 
 
 }

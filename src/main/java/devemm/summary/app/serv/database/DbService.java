@@ -2,6 +2,9 @@ package devemm.summary.app.serv.database;
 
 
 import devemm.summary.app.serv.database.pojo.WebPage;
+import devemm.summary.app.serv.database.pojo.WebPageDto;
+import devemm.summary.app.serv.database.pojo.WebPageInfo;
+import devemm.summary.app.serv.database.pojo.WebPageMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,16 +15,19 @@ import java.util.Optional;
 public class DbService  {
 
     private final DbRepo dbRepo;
+    private final WebPageMapper webPageMapper;
 
-    public Optional<WebPage> returnWebPageInfoIfExists(String url) {
+    public Optional<WebPageInfo> returnWebPageInfoIfExists(String url) {
         return dbRepo.findByUrl(url.trim());
-
     }
 
-    public void saveWebPage(String url, String summarize) {
+    public WebPageDto saveWebPage(String url, String summarize) {
         WebPage webPage = new WebPage();
         webPage.setUrl(url.trim());
         webPage.setSummary(summarize);
-        dbRepo.save(webPage);
+        WebPage save = dbRepo.save(webPage);
+
+        return webPageMapper.toDto(save);
+
     }
 }
