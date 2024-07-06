@@ -7,3 +7,8 @@ services:
       - 'POSTGRES_USER=maciek'
     ports:
       - '15432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
