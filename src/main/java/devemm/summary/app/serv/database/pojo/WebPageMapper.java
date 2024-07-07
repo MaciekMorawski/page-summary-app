@@ -16,4 +16,16 @@ public class WebPageMapper {
             webPageDto.setModel(webPage.getModel());
             return webPageDto;
         }
+
+        public WebPage fromDto(WebPageDto webPageDto) {
+            WebPage webPage = new WebPage();
+            webPage.setUuid(webPageDto.getUuid());
+            webPage.setUrl(webPageDto.getUrl());
+            webPage.setDateInserted(webPageDto.getDateInserted());
+            webPage.setSummary(webPageDto.getSummary());
+            webPage.setOryginalText(webPageDto.getOryginalText());
+            webPage.setApi(webPageDto.getApi());
+            webPage.setModel(webPageDto.getModel());
+            return webPage;
+        }
 }
