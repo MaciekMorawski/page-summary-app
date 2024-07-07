@@ -40,7 +40,9 @@ public class WebPage {
 
 
 //    @Enumerated(EnumType.STRING)
-//    private StrategyFromUrl srcOrigin;
+    //or
+//    @Convert(converter = StrategyFromUrlTypeConverter.class)
+//    private String srcOrigin;
 
 
     @PrePersist
