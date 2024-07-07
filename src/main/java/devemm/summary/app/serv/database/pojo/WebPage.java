@@ -25,6 +25,7 @@ public class WebPage {
 
     @CreationTimestamp
     @Column(updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime dateInserted;
 
     @Column(columnDefinition = "TEXT")
@@ -36,6 +37,10 @@ public class WebPage {
     private String api;
 
     private String model;
+
+
+//    @Enumerated(EnumType.STRING)
+//    private StrategyFromUrl srcOrigin;
 
 
     @PrePersist
