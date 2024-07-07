@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +17,8 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Component
+@Scope(value = "prototype")
 public final class NativeOpenAiChatDataModelIn {
 
     @SerializedName("messages")

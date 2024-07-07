@@ -5,8 +5,9 @@ import devemm.summary.ai.grok.repo.GroqRepository;
 import devemm.summary.ai.openai.NativeOpenAiChatDataModelIn;
 import devemm.summary.ai.openai.PromptRole;
 import devemm.summary.ai.prompt.PromptSummarization;
-import devemm.summary.app.serv.grabber.TxtGrabber;
+
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,26 +17,16 @@ import java.util.List;
 public class SummarizerAI {
 
     private final GroqRepository repositoryGroq;
-    private TxtGrabber txtGrabber;
+    private final  NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn;
 
-    public void setTxtGrabber(TxtGrabber txtGrabber) {
-        this.txtGrabber = txtGrabber;
-    }
 
-    public String summarize(String url) {
-
-        String txtToSummarize = txtGrabber.getTxtFromUrl(url);
-
-        NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn = new NativeOpenAiChatDataModelIn();
-
-        List<NativeOpenAiChatDataModelIn.Message> messages = new NativeOpenAiChatDataModelIn().getMessages();
-
+    public String summarizeByAI(@NonNull String txtToSummarize) {
+//        NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn = new NativeOpenAiChatDataModelIn();
+//        List<NativeOpenAiChatDataModelIn.Message> messages = new NativeOpenAiChatDataModelIn().getMessages();
+        List<NativeOpenAiChatDataModelIn.Message> messages = nativeOpenAiChatDataModelIn.getMessages();
         prepareMessages(txtToSummarize, messages, nativeOpenAiChatDataModelIn);
-
         setModelParams(nativeOpenAiChatDataModelIn, messages);
-
         return repositoryGroq.talk(nativeOpenAiChatDataModelIn);
-
     }
 
     private static void prepareMessages(String txtToSummarize, List<NativeOpenAiChatDataModelIn.Message> messages, NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn) {
@@ -44,7 +35,6 @@ public class SummarizerAI {
     }
 
     private static void setModelParams(NativeOpenAiChatDataModelIn nativeOpenAiChatDataModelIn, List<NativeOpenAiChatDataModelIn.Message> messages) {
-
         nativeOpenAiChatDataModelIn.setModel(GroqModel.LLAMA_3_70_B_8192.getModelName());
         nativeOpenAiChatDataModelIn.setMessages(messages);
         nativeOpenAiChatDataModelIn.setTemperature(0.1);
