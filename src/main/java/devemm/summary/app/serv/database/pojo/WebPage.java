@@ -27,9 +27,10 @@ public class WebPage {
     @Column(updatable = false)
     private LocalDateTime dateInserted;
 
-    @Column(length = 2000)
+    @Column(columnDefinition = "TEXT")
     private String summary;
 
+    @Column(columnDefinition = "TEXT")
     private String oryginalText;
 
     private String api;
