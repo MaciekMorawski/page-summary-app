@@ -34,7 +34,7 @@ public class WebPage {
 //    private String oryginalText;
     //OR
     @Embedded
-    private WebPageText webPageText;
+    private WebPageText webPageText = new WebPageText();
 
     private String api;
 
