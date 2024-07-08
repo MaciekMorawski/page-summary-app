@@ -8,13 +8,16 @@ import devemm.summary.app.serv.grabber.Grabber;
 import devemm.summary.app.serv.grabber.TxtGrabber;
 import devemm.summary.app.serv.strategychooser.PathChooser;
 import devemm.summary.app.serv.sumarize.SummarizerAI;
+import devemm.summary.beans.MyTextReader;
 import devemm.summary.pojo.SimpleJsonText;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.ai.document.Document;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -27,6 +30,7 @@ public class CtrlSumaryzacja {
     private final SummarizerAI summarizerAI;
     private final DbService dbService;
     private final Grabber grabber;
+    private final MyTextReader myTextReader;
 
     @GetMapping()
     public String hello() {
@@ -53,8 +57,12 @@ public class CtrlSumaryzacja {
 
     @PostMapping()
     public ResponseEntity<?> see(@RequestBody @Valid SimpleJsonText bodyJsonWithLink) {
-        //todo factory
+                return getWebPageDtoResponseEntity(bodyJsonWithLink);
 
+
+    }
+
+    private ResponseEntity<WebPageDto> getWebPageDtoResponseEntity(SimpleJsonText bodyJsonWithLink) {
         Optional<WebPageDto> webPageDto = dbService.returnWebPageInfoIfExists(bodyJsonWithLink.txt());
 
         if (webPageDto.isPresent()) {
@@ -64,13 +72,11 @@ public class CtrlSumaryzacja {
             TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink.txt()).getTxtGrabber();
             String toSummarize = grabber.grab(txtGrabber, bodyJsonWithLink.txt());
 
-            String summaryReady = summarizerAI.summarizeByAI(toSummarize);
+            String summaryReady = summarizerAI.summarizeByAI(toSummarize.substring(0, Integer.min(3000, toSummarize.length())));
 
             var returnValue = dbService.saveWebPage(bodyJsonWithLink.txt(), summaryReady, toSummarize);
             return ResponseEntity.ok(returnValue);
         }
-
-
     }
 
 
