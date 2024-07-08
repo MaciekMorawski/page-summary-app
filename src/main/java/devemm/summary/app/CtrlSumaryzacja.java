@@ -40,6 +40,17 @@ public class CtrlSumaryzacja {
 //        return null;
 //    }
 
+    @GetMapping(path = "load")
+    public ResponseEntity<?> loadData()  {
+        List<String> urls = myTextReader.loadText();
+        List<SimpleJsonText> list = urls.stream().filter(url -> !url.contains("youtu")).map(url -> new SimpleJsonText(url)).limit(2).toList();
+
+        for (SimpleJsonText simpleJsonText : list) {
+            getWebPageDtoResponseEntity(simpleJsonText);
+        }
+        return ResponseEntity.ok(list);
+    }
+
     @PostMapping()
     public ResponseEntity<?> see(@RequestBody @Valid SimpleJsonText bodyJsonWithLink) {
         //todo factory
