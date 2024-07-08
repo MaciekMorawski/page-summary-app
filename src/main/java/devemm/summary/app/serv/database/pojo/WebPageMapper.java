@@ -10,8 +10,8 @@ public class WebPageMapper {
             webPageDto.setUuid(webPage.getUuid());
             webPageDto.setUrl(webPage.getUrl());
             webPageDto.setDateInserted(webPage.getDateInserted());
-            webPageDto.setSummary(webPage.getSummary());
-            webPageDto.setOryginalText(webPage.getOryginalText());
+            webPageDto.setSummary(webPage.getWebPageText().getSummary());
+            webPageDto.setOryginalText(webPage.getWebPageText().getOryginalText());
             webPageDto.setApi(webPage.getApi());
             webPageDto.setModel(webPage.getModel());
             return webPageDto;
@@ -22,8 +22,8 @@ public class WebPageMapper {
             webPage.setUuid(webPageDto.getUuid());
             webPage.setUrl(webPageDto.getUrl());
             webPage.setDateInserted(webPageDto.getDateInserted());
-            webPage.setSummary(webPageDto.getSummary());
-            webPage.setOryginalText(webPageDto.getOryginalText());
+            webPage.getWebPageText().setSummary(webPageDto.getSummary());
+            webPage.getWebPageText().setOryginalText(webPageDto.getOryginalText());
             webPage.setApi(webPageDto.getApi());
             webPage.setModel(webPageDto.getModel());
             return webPage;

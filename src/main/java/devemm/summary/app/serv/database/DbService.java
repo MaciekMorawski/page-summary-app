@@ -23,8 +23,8 @@ public class DbService  {
     public WebPageDto saveWebPage(String url, String summarize, String toSummarize) {
         WebPage webPage = new WebPage();
         webPage.setUrl(url.trim());
-        webPage.setSummary(summarize);
-        webPage.setOryginalText(toSummarize);
+        webPage.getWebPageText().setOryginalText(toSummarize);
+        webPage.getWebPageText().setSummary(summarize);
         WebPage save = dbRepo.save(webPage);
 
         return webPageMapper.toDto(save);

@@ -28,11 +28,13 @@ public class WebPage {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime dateInserted;
 
-    @Column(columnDefinition = "TEXT")
-    private String summary;
-
-    @Column(columnDefinition = "TEXT")
-    private String oryginalText;
+//    @Column(columnDefinition = "TEXT")
+//    private String summary;
+//    @Column(columnDefinition = "TEXT")
+//    private String oryginalText;
+    //OR
+    @Embedded
+    private WebPageText webPageText;
 
     private String api;
 
