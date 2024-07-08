@@ -20,9 +20,7 @@ public class WebPageDto  {
 
     private LocalDateTime dateInserted;
 
-    private String summary;
-
-    private String oryginalText;
+    private WebPageText webPageText = new WebPageText();
 
     private String api;
 

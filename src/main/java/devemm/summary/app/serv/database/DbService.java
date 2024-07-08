@@ -21,10 +21,11 @@ public class DbService  {
     }
 
     public WebPageDto saveWebPage(String url, String summarize, String toSummarize) {
-        WebPage webPage = new WebPage();
-        webPage.setUrl(url.trim());
-        webPage.getWebPageText().setOryginalText(toSummarize);
-        webPage.getWebPageText().setSummary(summarize);
+        WebPageDto webPageDto = new WebPageDto();
+        webPageDto.setUrl(url.trim());
+        webPageDto.getWebPageText().setOryginalText(toSummarize);
+        webPageDto.getWebPageText().setSummary(summarize);
+        WebPage webPage = webPageMapper.fromDto(webPageDto);
         WebPage save = dbRepo.save(webPage);
 
         return webPageMapper.toDto(save);
