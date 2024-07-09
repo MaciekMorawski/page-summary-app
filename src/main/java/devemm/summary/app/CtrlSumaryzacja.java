@@ -1,5 +1,6 @@
 package devemm.summary.app;
 
+import devemm.summary.app.serv.InputProcess;
 import devemm.summary.app.serv.database.DbService;
 
 
@@ -27,10 +28,11 @@ import java.util.Optional;
 @Log4j2
 public class CtrlSumaryzacja {
 
-    private final SummarizerAI summarizerAI;
-    private final DbService dbService;
-    private final Grabber grabber;
+
+
+
     private final MyTextReader myTextReader;
+    private final InputProcess inputProcess;
 
     @GetMapping()
     public String hello() {
@@ -50,34 +52,19 @@ public class CtrlSumaryzacja {
         List<SimpleJsonText> list = urls.stream().filter(url -> !url.contains("youtu")).map(url -> new SimpleJsonText(url)).limit(2).toList();
 
         for (SimpleJsonText simpleJsonText : list) {
-            getWebPageDtoResponseEntity(simpleJsonText);
+            inputProcess.getWebPageDtoResponseEntity(simpleJsonText);
         }
         return ResponseEntity.ok(list);
     }
 
     @PostMapping()
     public ResponseEntity<?> see(@RequestBody @Valid SimpleJsonText bodyJsonWithLink) {
-                return getWebPageDtoResponseEntity(bodyJsonWithLink);
+                return inputProcess.getWebPageDtoResponseEntity(bodyJsonWithLink);
 
 
     }
 
-    private ResponseEntity<WebPageDto> getWebPageDtoResponseEntity(SimpleJsonText bodyJsonWithLink) {
-        Optional<WebPageDto> webPageDto = dbService.returnWebPageInfoIfExists(bodyJsonWithLink.txt());
 
-        if (webPageDto.isPresent()) {
-            var summary = webPageDto.get();
-            return ResponseEntity.ok(summary);
-        } else {
-            TxtGrabber txtGrabber = PathChooser.getStrategyFromUrl(bodyJsonWithLink.txt()).getTxtGrabber();
-            String toSummarize = grabber.grab(txtGrabber, bodyJsonWithLink.txt());
-
-            String summaryReady = summarizerAI.summarizeByAI(toSummarize.substring(0, Integer.min(3000, toSummarize.length())));
-
-            var returnValue = dbService.saveWebPage(bodyJsonWithLink.txt(), summaryReady, toSummarize);
-            return ResponseEntity.ok(returnValue);
-        }
-    }
 
 
 }
